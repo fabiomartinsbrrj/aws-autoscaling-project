@@ -1,5 +1,5 @@
-resource "aws_iam_role" "ec2-role-cloudwatch_1" {
-  name               = "ec2-role-cloudwatch_1"
+resource "aws_iam_role" "ec2-role-cloudwatch" {
+  name               = "ec2-role-cloudwatch"
   description        = "Allows EC2 instances to call AWS services on your behalf."
   assume_role_policy = <<EOF
 {
@@ -27,16 +27,16 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "ec2-role-cloudwatch-CloudWatchAgentAdminPolicy" {
-  role       = aws_iam_role.ec2-role-cloudwatch_1.name
+  role       = aws_iam_role.ec2-role-cloudwatch.name
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy"
 }
 
 resource "aws_iam_role_policy_attachment" "ec2-role-cloudwatch-CloudWatchAgentServerPolicy" {
-  role       = aws_iam_role.ec2-role-cloudwatch_1.name
+  role       = aws_iam_role.ec2-role-cloudwatch.name
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
 }
 
 resource "aws_iam_role_policy_attachment" "ec2-role-cloudwatch-CloudWatchFullAccess" {
-  role       = aws_iam_role.ec2-role-cloudwatch_1.name
+  role       = aws_iam_role.ec2-role-cloudwatch.name
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchFullAccess"
 }
